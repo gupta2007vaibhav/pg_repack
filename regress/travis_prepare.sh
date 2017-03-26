@@ -11,6 +11,10 @@ export PATH="$PGBIN:$PATH"
 
 sudo apt-get install postgresql-server-dev-$PGVER
 
+# find the running postgres cluster
+sudo netstat -ntpl
+ps afx
+
 # Go somewhere else or sudo will fail
 cd /
 sudo -u postgres "$PGBIN/pg_ctl" -w -D "$CONFDIR" start
