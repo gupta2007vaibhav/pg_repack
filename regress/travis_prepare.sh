@@ -16,6 +16,7 @@ sudo /etc/init.d/postgresql stop
 # Go somewhere else or sudo will fail
 cd /
 sudo -u postgres "$PGBIN/pg_ctl" -w -l /dev/null -D "$CONFDIR" start
+sudo -u postgres mkdir -p /var/lib/postgresql/testts
 sudo -u postgres "$PGBIN/psql" \
     -c "create tablespace testts location '/var/lib/postgresql/testts'"
 cd -
