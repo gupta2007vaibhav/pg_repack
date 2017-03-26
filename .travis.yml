@@ -4,18 +4,16 @@ dist: trusty
 sudo: required
 
 env:
-  - PGDIR=/usr/lib/postgresql/9.6/
-    DATADIR=/var/lib/postgresql/9.6/
-  - PGDIR=/usr/lib/postgresql/9.5/
-    DATADIR=/var/lib/postgresql/9.5/
+  - PGVER=9.6
+  - PGVER=9.5
 
 install:
-  - make PG_CONFIG=$PGDIR/bin/pg_config
-  - sudo make PG_CONFIG=$PGDIR/bin/pg_config install
-  - sudo -u postgres "$PGDIR/bin/pg_ctl" -w -l /dev/null -D "$DATADIR" start
+  - source regress/travis_prepare.sh
+  - make
+  - sudo make install
 
 script:
-  - make PG_CONFIG=$PGDIR/bin/pg_config installcheck
+  - make installcheck
 
 notifications:
   email: false
