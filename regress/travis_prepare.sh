@@ -4,6 +4,7 @@ set -e -x
 
 export PACKAGE="$PGVER"
 export PGDIR="/usr/lib/postgresql/$PACKAGE"
+export DATADIR="/var/lib/postgresql/$PACKAGE/main"
 export PGBIN="$PGDIR/bin"
 export PATH="$PGBIN:$PATH"
 
