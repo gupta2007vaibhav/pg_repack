@@ -17,5 +17,6 @@ ps afx
 
 # Go somewhere else or sudo will fail
 cd /
+sudo -u postgres "$PGBIN/pg_ctl" -w -D "/etc/postgresql/9.2/main" stop
 sudo -u postgres "$PGBIN/pg_ctl" -w -D "$CONFDIR" start
 cd -
