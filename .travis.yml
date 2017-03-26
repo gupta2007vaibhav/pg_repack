@@ -13,7 +13,7 @@ install:
   - sudo make install
 
 script:
-  - make installcheck
+  - regress/travis_test.sh
 
 notifications:
   email: false
